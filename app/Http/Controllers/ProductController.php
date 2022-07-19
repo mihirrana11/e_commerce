@@ -28,6 +28,8 @@ class ProductController extends Controller
         $res = new product;
         $res->product_name=$request->input('txt_product_name');
         $res->product_des=$request->input('txt_product_des');
+        
+
 
            if($request->file('txt_product_image')){
             $file= $request->file('txt_product_image');
@@ -35,6 +37,7 @@ class ProductController extends Controller
             $file-> move(public_path('public/Image'), $filename);
             $res['product_image']= $filename;
         }   
+        $res->product_price=$request->input('txt_product_price');
         $res->cat_id=$request->input('cat_id');
         $res->save();
         // $request->session()->flash('msg','Data submitted');
@@ -59,6 +62,8 @@ class ProductController extends Controller
         $res =product::find($request->id) ;
         $res->product_name=$request->input('txt_product_name');
         $res->product_des=$request->input('txt_product_des');
+        $res->product_price=$request->input('txt_product_price');
+        
         $res->cat_id=$request->input('cat_id');
 
         

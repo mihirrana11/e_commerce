@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->string('product_des');
             $table->string('product_image');
+            $table->decimal("product_price", 6, 2);
             $table->cat_id();
             $table->timestamps();
         });

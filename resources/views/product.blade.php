@@ -44,6 +44,8 @@
                                 <th>Product Name</th>
                                 <th>Product Description</th>
                                 <th>Product Image</th>
+                                <th>Product Price</th>
+
                                 <th>Action</th>
                             </thead>
                             <tbody>
@@ -52,10 +54,12 @@
                                 <tr>
                                           <td scope="col">{{$product->id}}</td>
                                           <td scope="col">{{$product->product_name}}</td>
-                                          <td scope="col">{{$product->product_des}}</th>
+                                          <td scope="col">{{$product->product_des}}</td>
+                                          
+
                                             <td>  <img src="{{ url('public/Image/'.$product->product_image) }}"
                                               style="height: 130px; width: 110px;"></td>
-                                       
+                                              <td scope="col">{{$product->product_price}}</td>
                                           <td>
                                         <a class="btn btn-success" class="btn btn-info" 
                                         data-toggle="modal" data-target="#editModal" onclick="{{$product->id}}">
@@ -118,11 +122,14 @@
                                             <div class="form-group">
                                                         <label>Product Description</label>
                                                     <input class="form-control" id="txt_product_des" name="txt_product_des">
-   
-                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label>Product Price</label>
+                                        <input class="form-control" id="txt_product_price" name="txt_product_price">
+                                       </div>
                                             <div class="form-group">
                                               <label >Add image</label>
-                                              <input type="file" class="form-control" required name="txt_product_image">
+                                              <input type="file" class="form-control"  name="txt_product_image">
                                             </div>
                                             <div class="form-group">
                                               <select name="cat_id">
@@ -185,9 +192,14 @@
                          placeholder="Description" value="{{$hi->product_des}}">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputPassword1"> Product Price</label>
+                    <input type="text" name="txt_product_price" class="form-control"  id="txt_product_price" 
+                         placeholder="Price" value="{{$hi->product_price}}">
+                  </div>
+                  <div class="form-group">
                   <img src="{{ url('public/Image/'.$hi->product_image) }}"
                                               style="height: 80px; width: 100px;">
-                     <input type="file" class="form-control" name="txt_product_image" required >
+                     <input type="file" class="form-control" name="txt_product_image"  >
                   </div>
     
                   <button type="submit" name="submit" class="btn btn-primary">Submit</button>

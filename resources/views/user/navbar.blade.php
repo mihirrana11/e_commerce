@@ -19,7 +19,7 @@
                          {{-- @foreach($proarr as $pro) --}}
                              @foreach($ecomarr as $ecom)
 
-                                 <a href="{{'shopshow'}}/{{$ecom->id}}" class="nav-item nav-link">{{$ecom->category_name}}</a>
+                                 <a href="{{'/shopshow'}}/{{$ecom->id}}" class="nav-item nav-link">{{$ecom->category_name}}</a>
                                  
                             @endforeach
                     {{-- @endforeach --}}

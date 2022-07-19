@@ -17,7 +17,7 @@
                     </div>
                     @foreach($ecomarr as $ecom)
 
-                    <a href="{{'shopshow'}}/{{$ecom->id}}" class="nav-item nav-link">{{$ecom->category_name}}</a>
+                    <a href="{{'/shopshow'}}/{{$ecom->id}}" class="nav-item nav-link">{{$ecom->category_name}}</a>
                     
                @endforeach
                 </div>
@@ -46,8 +46,9 @@
                         <a href="{{'contact'}}" class="nav-item nav-link">Contact</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="" class="nav-item nav-link">Login</a>
-                        <a href="" class="nav-item nav-link">Register</a>
+                        <a href="{{'/login'}}" class="nav-item nav-link">Login</a>
+                        <a href="{{'/signup'}}" class="nav-item nav-link">Register</a>
+                        <a href="{{'/logout'}}" class="nav-item nav-link">Logout</a>
                     </div>
                 </div>
             </nav>

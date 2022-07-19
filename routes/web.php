@@ -77,14 +77,16 @@ Route::get('/chekout','App\Http\Controllers\EComController@navchekoutshow');
 Route::get('/shop','App\Http\Controllers\EComController@navshow');
 Route::get('/shopdetails','App\Http\Controllers\EComController@navshopshow');
 Route::get('/contact','App\Http\Controllers\EComController@navcontactshow');
+Route::get('/addtocart','App\Http\Controllers\EComController@addtocartnav');
+
 // Route::get('/shopshow','App\Http\Controllers\EComController@categoryproducts');
 
 Route::get('/shop','App\Http\Controllers\ProductController@productshow');
 Route::get('/shopshow/{id}','App\Http\Controllers\ProductController@categoryproduct');
 
-Route::get('/addtocart', function () {
-    return view('user/addtocart');
-});
+// Route::get('/addtocart', function () {
+//     return view('user/addtocart');
+// });
 
 
 
