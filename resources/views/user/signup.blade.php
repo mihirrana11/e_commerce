@@ -4,9 +4,9 @@
 @include('user/hedarfile')
 <body>
     <!-- Topbar Start -->
-    {{-- @include('user/hedar') --}}
+    {{-- @include('user/hedar')
                             
-    {{-- @include('user/navbar2') --}}
+    @include('user/navbar2') --}}
 
 
 <section class="vh-100 bg-image"

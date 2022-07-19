@@ -82,6 +82,9 @@ Route::get('/contact','App\Http\Controllers\EComController@navcontactshow');
 Route::get('/shop','App\Http\Controllers\ProductController@productshow');
 Route::get('/shopshow/{id}','App\Http\Controllers\ProductController@categoryproduct');
 
+Route::get('/addtocart', function () {
+    return view('user/addtocart');
+});
 
 
 
@@ -96,3 +99,6 @@ Route::get('/login', function () {
 Route::post('/signup',[App\Http\Controllers\AuthController::class,'signup']);//user
 Route::post('/login',[App\Http\Controllers\AuthController::class,'authenticate']);//user
 Route::get("/logout",[App\Http\Controllers\AuthController::class,'logout']);//user
+
+
+
