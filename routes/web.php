@@ -84,9 +84,6 @@ Route::get('/addtocart','App\Http\Controllers\EComController@addtocartnav');
 Route::get('/shop','App\Http\Controllers\ProductController@productshow');
 Route::get('/shopshow/{id}','App\Http\Controllers\ProductController@categoryproduct');
 
-// Route::get('/addtocart', function () {
-//     return view('user/addtocart');
-// });
 
 
 
@@ -102,5 +99,18 @@ Route::post('/signup',[App\Http\Controllers\AuthController::class,'signup']);//u
 Route::post('/login',[App\Http\Controllers\AuthController::class,'authenticate']);//user
 Route::get("/logout",[App\Http\Controllers\AuthController::class,'logout']);//user
 
+// Route::post("user/addtocart/{id}",[App\Http\Controllers\CartController::class,'store'])->name('user/addtocart/');//cart
 
+
+
+// Route::get("/addtocart",[App\Http\Controllers\CartController::class,'cart']);//user
+
+// Route::get('/addtocart', function () {
+//     return view('user,addtocart');
+// });
+// Route::get('/addtocart','App\Http\Controllers\CartController@productshow');
+
+
+Route::post('/add_to_cart',[App\Http\Controllers\ProductController::class,'addtocart']);//user
+Route::get('/addtocart',[App\Http\Controllers\ProductController::class,'cartlist']);//user
 

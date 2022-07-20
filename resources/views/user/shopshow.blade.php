@@ -191,11 +191,26 @@
                                     <h6>{{$product->product_price}}</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                                 </div>
                             </div>
+                            {{-- <form method="post" action="/user/addtocart"> --}}
+                                {{--/addtocart/{{$product->id--}}
                             <div class="card-footer d-flex justify-content-between bg-light border">
                                 <a href="" class="btn btn-sm text-darks p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                                {{-- <input type="text" value="{{$product->product_id}}" name="product_id"> --}}
+
+                                <form method="POST" action="/add_to_cart">
+                                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                                    @csrf
+                                    <button class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1 "></i>Add To Cart</button>
+                                </form>
+
+                                {{-- @if(Auths::user())
+                                <a href=""class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1 "></i>Add To Cart</a>
+                                @else
+                                <a href="{{'/login'}}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1 "></i>Add To Cart</a>
+                                @endif --}}
                             </div>
-                        
+                            {{-- </form> --}}
+
                         </div>
                     </div>
                     @endforeach
@@ -371,6 +386,12 @@
   <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
   @include('user/footerfile')
+
+
+  <script>
+
+    
+  </script>
   
 </body>
 

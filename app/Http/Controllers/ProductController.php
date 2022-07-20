@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\product;
 use App\Models\e_com;
+use App\Models\Cart;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -114,5 +116,41 @@ class ProductController extends Controller
     {
         return view('user/index')->with('proarr',product::all())->with('ecomarr',e_com::all());
     }
+
+    public function addtocart(Request $request)
+    {
+        
+        // $request->Auth::user('id');
+        if($request->session())
+        {
+            $cart = new Cart;
+            // $cart->user_id=$request->session()->get('user')('id');
+            $cart->prod_id=$request->product_id;
+
+            $cart->save();
+
+           return redirect('/');
+
+        }
+        else{
+            return redirect('login');
+        }
+
+    }
+    public function cartlist()
+    {
+        dd(Auth::user('id'));
+        // echo 'hello';
+        $userid=Auth::user('id');
+        // dd($userid);
+        $product=DB::table('carts')->join('products','carts.prod_id','=','products.id')
+        ->where('carts.user_id',$userid)
+        ->select('products.*')
+        ->get();
+
+        return $product;
+        // return view('addtocart',['products'=>$product]);
+    }
+
 
 }
