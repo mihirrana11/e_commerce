@@ -139,9 +139,9 @@ class ProductController extends Controller
     }
     public function cartlist()
     {
-        dd(Auth::user('id'));
+        // dd(Auth::user()->get('id'));
         // echo 'hello';
-        $userid=Auth::user('id');
+        $userid=Auth::user()->get('id');
         // dd($userid);
         $product=DB::table('carts')->join('products','carts.prod_id','=','products.id')
         ->where('carts.user_id',$userid)
