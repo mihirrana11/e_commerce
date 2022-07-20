@@ -143,13 +143,14 @@ class ProductController extends Controller
         // echo 'hello';
         $userid=Auth::user()->get('id');
         // dd($userid);
+        echo $userid;
         $product=DB::table('carts')->join('products','carts.prod_id','=','products.id')
         ->where('carts.user_id',$userid)
         ->select('products.*')
         ->get();
 
-        return $product;
-        // return view('addtocart',['products'=>$product]);
+        // return $product;
+        return view('user/addtocart',['products'=>$product]);
     }
 
 
