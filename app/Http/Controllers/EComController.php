@@ -122,11 +122,11 @@ class EComController extends Controller
          return view('user/contact')->with('ecomarr',e_com::all());
       
     }
-    public function addtocartnav(e_com $e_com)
-    {
-         return view('user/addtocart')->with('ecomarr',e_com::all());
+    // public function addtocartnav(e_com $e_com)
+    // {
+    //      return view('user/addtocart')->with('ecomarr',e_com::all());
       
-    }
+    // }
     // public function hi(e_com $e_com)
     // {
     //      return view('user/shopshow')->with('ecomarr',e_com::all());

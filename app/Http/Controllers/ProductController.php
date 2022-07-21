@@ -119,17 +119,17 @@ class ProductController extends Controller
 
     public function addtocart(Request $request)
     {
-        
+        // ddd(Auth::user()->id);
         // $request->Auth::user('id');
-        if($request->session())
+        if(Auth::check())
         {
             $cart = new Cart;
-            // $cart->user_id=$request->session()->get('user')('id');
+            $cart->user_id=Auth::user()->id;
             $cart->prod_id=$request->product_id;
 
             $cart->save();
 
-           return redirect('/');
+           return redirect('/index');
 
         }
         else{
@@ -139,19 +139,49 @@ class ProductController extends Controller
     }
     public function cartlist()
     {
-        // dd(Auth::user()->get('id'));
+        // dd(Auth::user('id'));
         // echo 'hello';
-        $userid=Auth::user()->get('id');
+        $userid=Auth::user()->id;
         // dd($userid);
-        echo $userid;
         $product=DB::table('carts')->join('products','carts.prod_id','=','products.id')
         ->where('carts.user_id',$userid)
-        ->select('products.*')
+        ->select('products.*','carts.id as cart_id')
         ->get();
-
+        // dd($product);
         // return $product;
-        return view('user/addtocart',['products'=>$product]);
+        return view('user/addtocart',['products'=>$product])->with('ecomarr',e_com::all());
+        // return view('user/addtocart')->with('ecomarr',e_com::all());
     }
 
+    
+    public function removecartlist($id)
+    {
+        Cart::destroy($id);
+        return redirect('addtocart');
+    }
+
+    public function detail($id)
+    {
+        $data=  product::find($id);
+        return view('user/shopdetails',['product'=>$data]);
+    }
+
+    public function search(Request $request)
+    {
+        // return $request->input();
+         $data= product::
+        where('product_name', 'like' , '%'.$request->input('search').'%')->get();
+
+        return view('user/index',['product'=>$data]);
+    }
+
+    public static function cartitem(Type $var = null)
+    {
+       
+        $userid=Auth::user()->id;
+
+        return Cart::where('user_id',$userid)->count();
+
+    }
 
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RazorpayPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ Route::get('/chekout','App\Http\Controllers\EComController@navchekoutshow');
 Route::get('/shop','App\Http\Controllers\EComController@navshow');
 Route::get('/shopdetails','App\Http\Controllers\EComController@navshopshow');
 Route::get('/contact','App\Http\Controllers\EComController@navcontactshow');
-Route::get('/addtocart','App\Http\Controllers\EComController@addtocartnav');
+// Route::get('/addtocart','App\Http\Controllers\EComController@addtocartnav');
 
 // Route::get('/shopshow','App\Http\Controllers\EComController@categoryproducts');
 
@@ -111,6 +112,18 @@ Route::get("/logout",[App\Http\Controllers\AuthController::class,'logout']);//us
 // Route::get('/addtocart','App\Http\Controllers\CartController@productshow');
 
 
-Route::post('/add_to_cart',[App\Http\Controllers\ProductController::class,'addtocart']);//user
-Route::get('/addtocart',[App\Http\Controllers\ProductController::class,'cartlist']);//user
+Route::post('/add_to_cart',[App\Http\Controllers\ProductController::class,'addtocart']);//add a product in table and cart
+Route::get('/addtocart',[App\Http\Controllers\ProductController::class,'cartlist']);//product list in add to cart
+
+Route::get('/removecartlist/{id}',[App\Http\Controllers\ProductController::class,'removecartlist']);//remove product a addtocart
+
+Route::get('/detail/{id}',[App\Http\Controllers\ProductController::class,'detail']);//product details show
+
+Route::get('/search',[App\Http\Controllers\ProductController::class,'search']);//search a products
+
+
+
+Route::get('/chekout', [RazorpayPaymentController::class, 'index']);//rezorpay
+Route::post('/chekout', [RazorpayPaymentController::class, 'store']);//rezorpay
+
 

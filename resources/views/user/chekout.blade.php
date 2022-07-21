@@ -31,7 +31,7 @@
     <div class="row px-xl-5">
         <div class="col-lg-8">
             <div class="mb-4">
-                <h4 class="font-weight-semi-bold mb-4">Billing Address</h4>
+                <h4 class="font-weight-semi-bold mb-4">Shipping Address</h4>
                 <div class="row">
                     <div class="col-md-6 form-group">
                         <label>First Name</label>
@@ -144,7 +144,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card border-secondary mb-5">
+            {{-- <div class="card border-secondary mb-5">
                 <div class="card-header bg-secondary border-0">
                     <h4 class="font-weight-semi-bold m-0">Order Total</h4>
                 </div>
@@ -178,7 +178,7 @@
                         <h5 class="font-weight-bold">$160</h5>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="card border-secondary mb-5">
                 <div class="card-header bg-secondary border-0">
                     <h4 class="font-weight-semi-bold m-0">Payment</h4>
@@ -187,13 +187,13 @@
                     <div class="form-group">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" name="payment" id="paypal">
-                            <label class="custom-control-label" for="paypal">Paypal</label>
+                            <label class="custom-control-label" for="paypal">COD</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" name="payment" id="directcheck">
-                            <label class="custom-control-label" for="directcheck">Direct Check</label>
+                            <label class="custom-control-label" for="directcheck">RazarPay</label>
                         </div>
                     </div>
                     <div class="">
@@ -204,7 +204,26 @@
                     </div>
                 </div>
                 <div class="card-footer border-secondary bg-transparent">
-                    <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
+                    
+                    <a class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3 " > Place Order</a>
+
+                    <div class="card-body text-center">
+                        <form action="/chekout" method="POST" >
+                           @csrf
+                           <script src="https://checkout.razorpay.com/v1/checkout.js"
+                              data-key="rzp_test_2U88Eyz07IUli0"
+                              data-amount="50001" 
+                              data-currency="INR"
+                              data-buttontext="Place Order"
+                              data-name="Mihir Rana"
+                              data-description="Rozerpay"
+                              data-image="http://www.gouptechnologies.com/files/admin/team/dToEJ_4eLk6_4171943_vatsal.jpeg"
+                              data-prefill.name="name"
+                              data-prefill.email="@gmail.com"
+                              data-theme.color="#F37254"></script>
+                        </form>
+                     </div>
+                    
                 </div>
             </div>
         </div>

@@ -35,7 +35,7 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{'index'}}" class="nav-item nav-link">Home</a>
                         <a href="{{'shop'}}" class="nav-item nav-link">Shop</a>
-                        <a href="{{'shopdetails'}}" class="nav-item nav-link">Shop Detail</a>
+                        {{-- <a href="{{'shopdetails'}}" class="nav-item nav-link">Shop Detail</a> --}}
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu rounded-0 m-0">

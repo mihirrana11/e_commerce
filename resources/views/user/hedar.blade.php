@@ -1,3 +1,8 @@
+
+<?php 
+use App\Http\Controllers\ProductController;
+$total=ProductController::cartitem()
+?>
 <div class="container-fluid">
     <div class="row bg-secondary py-2 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
@@ -36,9 +41,9 @@
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
-            <form action="">
+            <form action="/search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for products">
+                    <input type="text" name="search" class="form-control" placeholder="Search for products">
                     <div class="input-group-append">
                         <span class="input-group-text bg-transparent text-primary">
                             <i class="fa fa-search"></i>
@@ -54,7 +59,7 @@
             </a>
             <a href="{{'/addtocart'}}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
+                <span class="badge">{{$total}}</span>
             </a>
         </div>
     </div>
