@@ -117,7 +117,7 @@ Route::get('/addtocart',[App\Http\Controllers\ProductController::class,'cartlist
 
 Route::get('/removecartlist/{id}',[App\Http\Controllers\ProductController::class,'removecartlist']);//remove product a addtocart
 
-Route::get('/detail/{id}',[App\Http\Controllers\ProductController::class,'detail']);//product details show
+Route::get('detail/{id}/',[App\Http\Controllers\ProductController::class,'detail']);//product details show
 
 Route::get('/search',[App\Http\Controllers\ProductController::class,'search']);//search a products
 

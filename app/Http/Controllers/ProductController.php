@@ -65,7 +65,6 @@ class ProductController extends Controller
         $res->product_name=$request->input('txt_product_name');
         $res->product_des=$request->input('txt_product_des');
         $res->product_price=$request->input('txt_product_price');
-        
         $res->cat_id=$request->input('cat_id');
 
         
@@ -163,9 +162,10 @@ class ProductController extends Controller
     public function detail($id)
     {
         $data=  product::find($id);
-        return view('user/shopdetails',['product'=>$data]);
+        return view('user/shopdetails',['product'=>$data])->with('ecomarr',e_com::all());
     }
 
+    
     public function search(Request $request)
     {
         // return $request->input();

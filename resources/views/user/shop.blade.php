@@ -176,7 +176,7 @@
                         <div class="card product-item border-0 mb-4">
                            
                                 
-                           <a href="detail/{{$product->id}}">
+                           <a href="/detail/{{$product->id}}">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img  class="img-fluid" src="{{ url('public/Image/'.$product->product_image)}}" 
                                  style="height: 350px; width: 300px;"  >

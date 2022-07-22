@@ -33,7 +33,7 @@ class RazorpayPaymentController extends Controller
         $api = new Api("rzp_test_2U88Eyz07IUli0", "urrm7j4oMSl8Fcq0M1oSZCOO");
   
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
-  
+    ddd($payment);
         if(count($input)  && !empty($input['razorpay_payment_id'])) {
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 

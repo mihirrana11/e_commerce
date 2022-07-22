@@ -7,7 +7,7 @@
     @include('user/hedar')   
    
    <!-- Navbar Start -->
-   {{-- @include('user/navbar2') --}}
+   @include('user/navbar2')
 <!-- Navbar End -->
 
 
